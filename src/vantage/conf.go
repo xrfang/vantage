@@ -14,7 +14,7 @@ var cf Configuration
 
 func loadConfig(fn string) {
 	//default values
-	cf.HTTP_PORT = "8080"
+	cf.HTTP_PORT = "8684"
 	cf.READ_TIMEOUT = 60
 	cf.WRITE_TIMEOUT = 60
 	if fn != "" {

@@ -1,5 +1,5 @@
 ## HTTP service port
-#HTTP_PORT=8080
+#HTTP_PORT=8684
 
 ## timeout for HTTP server
 #READ_TIMEOUT=60

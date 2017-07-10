@@ -16,13 +16,12 @@ func main() {
 		return
 	}
 	loadConfig(*conf)
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", handler)
+
+	http.DefaultServeMux.HandleFunc("/", handler)
 	svr := http.Server{
 		Addr:         ":" + cf.HTTP_PORT,
-		Handler:      mux,
 		ReadTimeout:  time.Duration(cf.READ_TIMEOUT) * time.Second,
 		WriteTimeout: time.Duration(cf.WRITE_TIMEOUT) * time.Second,
 	}
-	svr.ListenAndServe()
+	assert(svr.ListenAndServe())
 }
