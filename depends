@@ -14,3 +14,4 @@
 
 # Following are sample dependencies, modify as appropriate.
 https://github.com/xrfang/go-conf
+https://github.com/atotto/clipboard
