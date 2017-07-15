@@ -4,3 +4,6 @@
 ## timeout for HTTP server
 #READ_TIMEOUT=60
 #WRITE_TIMEOUT=60
+
+## AlphaVantage API Key
+#API_KEY=demo

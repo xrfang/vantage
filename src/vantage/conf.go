@@ -8,6 +8,7 @@ type Configuration struct {
 	HTTP_PORT     string
 	READ_TIMEOUT  int
 	WRITE_TIMEOUT int
+	API_KEY       string
 }
 
 var cf Configuration
