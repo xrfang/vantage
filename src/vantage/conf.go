@@ -18,6 +18,7 @@ func loadConfig(fn string) {
 	cf.HTTP_PORT = "8684"
 	cf.READ_TIMEOUT = 60
 	cf.WRITE_TIMEOUT = 60
+	cf.API_KEY = "demo"
 	if fn != "" {
 		assert(conf.ParseFile(fn, &cf))
 	}
