@@ -26,9 +26,9 @@ type AVReply struct {
 		Information   string `json:"1. Information"`
 		Symbol        string `json:"2. Symbol"`
 		LastRefreshed string `json:"3. Last Refreshed"`
-		Interval      string `json:"4. Interval"`
-		OutputSize    string `json:"5. Output Size"`
-		TimeZone      string `json:"6. Time Zone"`
+		TZ1           string `json:"4. Time Zone"`
+		TZ2           string `json:"5. Time Zone"`
+		TZ3           string `json:"6. Time Zone"`
 	} `json:"Meta Data"`
 	TimeSeries_1min    map[string]OHLC `json:"Time Series (1min)"`
 	TimeSeries_5min    map[string]OHLC `json:"Time Series (5min)"`

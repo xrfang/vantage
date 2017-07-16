@@ -51,13 +51,12 @@ func (c client) TimeSeries(kind TimeSeriesKind, symbol, output string) (
 	if err != nil {
 		return nil, nil, err
 	}
+	m := reply.MetaData
 	meta := map[string]string{
-		"information":    reply.MetaData.Information,
-		"symbol":         reply.MetaData.Symbol,
-		"last_refreshed": reply.MetaData.LastRefreshed,
-		"interval":       reply.MetaData.Interval,
-		"output_size":    reply.MetaData.OutputSize,
-		"time_zone":      reply.MetaData.TimeZone,
+		"information":    m.Information,
+		"symbol":         m.Symbol,
+		"last_refreshed": m.LastRefreshed,
+		"time_zone":      m.TZ1 + m.TZ2 + m.TZ3, //only one of them is non-empty
 	}
 	var data []map[string]string
 	extract := func(series map[string]OHLC) []map[string]string {
