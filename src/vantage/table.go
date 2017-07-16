@@ -36,6 +36,7 @@ func tabulate(data []map[string]string) (string, string) {
 	}
 	var buf bytes.Buffer
 	cw := csv.NewWriter(&buf)
+	cw.UseCRLF = true
 	cw.Write(keys)
 	for _, d := range data {
 		var row []string

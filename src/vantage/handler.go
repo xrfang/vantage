@@ -87,18 +87,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			summary = err.Error()
 		} else {
-			summary = fmt.Sprintf(`<span><span style="color:red">%s</span>
-			    &nbsp;%s (%d items)</span><span style="float:right">%s (%s)
-				</span>`, meta["symbol"], meta["information"], len(data),
-				meta["last_refreshed"], meta["time_zone"])
+			tpl := `<span><span style="color:red">%s</span>&nbsp;%s (%d 
+			    items)</span><span style="float:right">%s (%s)</span>`
+			caption := meta["symbol"]
+			info := meta["information"]
 			table, csv := tabulate(data)
 			content = table
 			err := clipboard.WriteAll(symbol + "\n" + csv)
-			if err == nil {
-				fmt.Println("csv written to clipboard")
-			} else {
-				fmt.Println("error write csv:", err)
+			if err != nil {
+				caption = "ERROR"
+				info = "clipboard access failed: " + err.Error()
 			}
+			summary = fmt.Sprintf(tpl, caption, info, len(data),
+				meta["last_refreshed"], meta["time_zone"])
 		}
 	}
 	page := strings.Replace(PAGE, "{{VERSION}}", fmt.Sprintf("V%s.%s",

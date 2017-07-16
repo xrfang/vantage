@@ -68,7 +68,6 @@ func (c client) request(args map[string]string) (*AVReply, error) {
 		params = append(params, k+"="+v)
 	}
 	url := c.url + "?" + strings.Join(params, "&")
-	fmt.Println(url)
 	resp, err := c.hc.Get(url)
 	if err != nil {
 		return nil, err
