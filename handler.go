@@ -1,11 +1,12 @@
 package main
 
 import (
-	"alphavantage"
 	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"vantage/alphavantage"
 
 	"github.com/atotto/clipboard"
 )
