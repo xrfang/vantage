@@ -10,8 +10,7 @@ func tabulate(data []map[string]string) (string, string) {
 	if len(data) == 0 {
 		return "", ""
 	}
-	keys := []string{"time", "open", "high", "low", "close", "volume",
-		"adj_close", "dividend", "split_coeff"}
+	keys := []string{"time", "open", "high", "low", "close", "volume"}
 	tab := []string{`<table border="0" width="100%"><tr class="headrow">`}
 	for _, k := range keys {
 		tab = append(tab, `<th class="thcell">`+k+`</th>`)
